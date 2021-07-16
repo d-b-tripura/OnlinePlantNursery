@@ -1,0 +1,10 @@
+
+.leftpane {
+    margin-left: 25%;
+    margin-right:25%;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    float: center;
+    border-collapse: collapse;
+}
