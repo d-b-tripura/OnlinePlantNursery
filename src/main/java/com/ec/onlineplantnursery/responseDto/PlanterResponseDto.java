@@ -12,8 +12,8 @@ public class PlanterResponseDto {
 	private int planterColor;
 	private String planterShape;
 	private int planterStock;
-	private double planterCost;
-	
+	private double cost;
+	private String commonName;
 	
 
 	public int getpId() {
@@ -72,15 +72,25 @@ public class PlanterResponseDto {
 		this.planterStock = planterStock;
 	}
 
+	public double getCost() {
+		return cost;
+	}
+
+	public void setCost(double cost) {
+		this.cost = cost;
+	}
+
+	public String getCommonName() {
+		return commonName;
+	}
+
+	public void setCommonName(String commonName) {
+		this.commonName = commonName;
+	}
+
 	
 
-	public double getPlanterCost() {
-		return planterCost;
-	}
-
-	public void setPlanterCost(double planterCost) {
-		this.planterCost = planterCost;
-	}
+	
 
 	
 

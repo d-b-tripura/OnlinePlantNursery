@@ -4,6 +4,8 @@ package com.ec.onlineplantnursery.entity;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,24 +19,41 @@ import io.swagger.annotations.ApiModelProperty;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-//@DiscriminatorColumn(name = "Product_Type",discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorColumn(name = "productType",discriminatorType = DiscriminatorType.STRING)
 public class Product implements Comparable<Product>,Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	private int pId;
 	
-	@ApiModelProperty(name = "SeedName", value = "Hold the min 3 char seed name", required = true)
-	@NotEmpty(message = "Seed Name cannot be left blank or null")
-	@Size(min = 3, max = 15, message = "Invalid Seed Name, Seed Name should have minimum 3 and maximum 15 characters")
+	@ApiModelProperty(name = "ProductName", value = "Hold the min 3 char seed name", required = true)
+	@NotEmpty(message = "Product Name cannot be left blank or null")
+	@Size(min = 3, max = 15, message = "Invalid Product Name, Product Name should have minimum 3 and maximum 15 characters")
 	private String commonName;
 
 	private double cost;
+
+	@Column(name="productType", insertable = false, updatable = false)
+	private String productType;
 
 	public Product() {
 		super();
 		
 	}
+	
+	
+
+	public Product(int pId,
+			@NotEmpty(message = "Product Name cannot be left blank or null") @Size(min = 3, max = 15, message = "Invalid Product Name, Product Name should have minimum 3 and maximum 15 characters") String commonName,
+			double cost, String productType) {
+		super();
+		this.pId = pId;
+		this.commonName = commonName;
+		this.cost = cost;
+		this.productType = productType;
+	}
+
+
 
 	public Product(int pId, double cost,String commonName) {
 		super();

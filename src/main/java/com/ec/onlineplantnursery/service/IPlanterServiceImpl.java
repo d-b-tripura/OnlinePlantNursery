@@ -58,7 +58,7 @@ public class IPlanterServiceImpl implements IPlanterService {
 	 */
 
 	@Override
-	public Planter addPlanter(Planter planter) throws ResourceNotFoundException {
+	public Planter addPlanter(Planter planter) {
 
 		
 		return planterRepo.save(planter);

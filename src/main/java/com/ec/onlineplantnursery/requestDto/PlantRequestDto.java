@@ -22,9 +22,7 @@ public class PlantRequestDto {
 	@Size(min = 3, max = 15, message = "Invalid Plant spread")
 	private String plantSpread;
 
-	@Column(unique = true)
-	@NotEmpty(message = "Plant Name cannot be blank")
-	@Size(min = 3, max = 15, message = "Invalid Plant Name")
+	
 	private String commonName;
 
 	@ApiModelProperty(name = "Bloom Time", value = "Hold the min 3 char bloom time", required = true)
@@ -55,7 +53,7 @@ public class PlantRequestDto {
 	private Integer plantsStock;
 
 	@Positive(message = "Enter valid cost")
-	private double plantCost;
+	private double cost;
 
 	
 	
@@ -65,31 +63,6 @@ public class PlantRequestDto {
 		// TODO Auto-generated constructor stub
 	}
 
-	public PlantRequestDto(int pId, @Positive(message = "Height of plant should be positive") Integer plantHeight,
-			@NotEmpty(message = "Plant spread cannot be blank") @Size(min = 3, max = 15, message = "Invalid Plant spread") String plantSpread,
-			@NotEmpty(message = "Plant Name cannot be blank") @Size(min = 3, max = 15, message = "Invalid Plant Name") String commonName,
-			@NotEmpty(message = "bloom time cannot be left blank or null") @Size(min = 3, max = 15, message = "Invalid bloom time, bloom time should have minimum 3 and maximum 15 characters") String bloomTime,
-			String medicinalOrCulinaryUse,
-			@NotEmpty(message = "difficulty level cannot be left blank or null") String difficultyLevel,
-			@NotEmpty(message = "Temperature cannot be left blank or null") String temparature,
-			@NotNull String typeOfPlant,
-			@NotEmpty(message = "plant description cannot be left blank or null") String plantDescription,
-			@Positive(message = "Stock should be positive") Integer plantsStock,
-			@Positive(message = "Enter valid cost") double plantCost) {
-		super();
-		this.pId = pId;
-		this.plantHeight = plantHeight;
-		this.plantSpread = plantSpread;
-		this.commonName = commonName;
-		this.bloomTime = bloomTime;
-		this.medicinalOrCulinaryUse = medicinalOrCulinaryUse;
-		this.difficultyLevel = difficultyLevel;
-		this.temparature = temparature;
-		this.typeOfPlant = typeOfPlant;
-		this.plantDescription = plantDescription;
-		this.plantsStock = plantsStock;
-		this.plantCost = plantCost;
-	}
 
 	
 	public int getpId() {
@@ -180,13 +153,19 @@ public class PlantRequestDto {
 		this.plantsStock = plantsStock;
 	}
 
-	public double getPlantCost() {
-		return plantCost;
+	
+
+	public double getCost() {
+		return cost;
 	}
 
-	public void setPlantCost(double plantCost) {
-		this.plantCost = plantCost;
+
+
+	public void setCost(double cost) {
+		this.cost = cost;
 	}
+
+
 
 	@Override
 	public String toString() {
@@ -194,7 +173,7 @@ public class PlantRequestDto {
 				+ ", commonName=" + commonName + ", bloomTime=" + bloomTime + ", medicinalOrCulinaryUse="
 				+ medicinalOrCulinaryUse + ", difficultyLevel=" + difficultyLevel + ", temparature=" + temparature
 				+ ", typeOfPlant=" + typeOfPlant + ", plantDescription=" + plantDescription + ", plantsStock="
-				+ plantsStock + ", plantCost=" + plantCost + "]";
+				+ plantsStock + ", cost=" + cost + "]";
 	}
 
 	

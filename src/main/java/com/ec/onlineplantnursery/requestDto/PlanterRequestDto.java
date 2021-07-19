@@ -15,6 +15,8 @@ import lombok.Data;
 public class PlanterRequestDto {
 
 	private int pId;
+	
+	private String commonName;
 
 	@Positive(message = "Should be positive")
 	private float planterheight;
@@ -36,7 +38,7 @@ public class PlanterRequestDto {
 	private int planterStock;
 
 	@Min(value = 50, message = "Cost cannot be less than 50")
-	private double planterCost;
+	private double cost;
 
 
 	
@@ -97,15 +99,23 @@ public class PlanterRequestDto {
 		this.planterStock = planterStock;
 	}
 
+	public double getCost() {
+		return cost;
+	}
+
+	public void setCost(double cost) {
+		this.cost = cost;
+	}
+
+	public String getCommonName() {
+		return commonName;
+	}
+
+	public void setCommonName(String commonName) {
+		this.commonName = commonName;
+	}
+
 	
-
-	public double getPlanterCost() {
-		return planterCost;
-	}
-
-	public void setPlanterCost(double planterCost) {
-		this.planterCost = planterCost;
-	}
 
 	
 

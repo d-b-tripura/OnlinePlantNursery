@@ -1,6 +1,7 @@
 package com.ec.onlineplantnursery.entity;
 
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -10,7 +11,7 @@ import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 @Entity
 @Table(name = "Planter")
-//@DiscriminatorValue("planter")
+@DiscriminatorValue("planter")
 public class Planter extends Product{
 	
 
@@ -48,21 +49,20 @@ public class Planter extends Product{
 	}
 
 
-	public Planter(@NotEmpty(message = "Seed Name cannot be left blank or null") @Size(min = 3, max = 15, message = "Invalid Seed Name, Seed Name should have minimum 3 and maximum 15 characters") String commonName,
-			@Positive float planterheight,
+	
+
+	public Planter(int pId, double cost, String commonName, @Positive float planterheight,
 			@Min(value = 1, message = "Capacity cannot be less than 1") int planterCapacity, @Positive int drinageHoles,
 			@Positive int planterColor,
 			@NotEmpty(message = "Planter shape cannot be left blank or null") @Size(min = 3, max = 15, message = "Invalid Planter shape") String planterShape,
-			@Min(value = 1, message = "In stock cannot be less than 1") int planterStock,
-			@Min(value = 50, message = "Cost cannot be less than 50") double planterCost) {
-		super();
+			@Min(value = 1, message = "In stock cannot be less than 1") int planterStock) {
+		super(pId, cost,commonName);
 		this.planterheight = planterheight;
 		this.planterCapacity = planterCapacity;
 		this.drinageHoles = drinageHoles;
 		this.planterColor = planterColor;
 		this.planterShape = planterShape;
 		this.planterStock = planterStock;
-		
 	}
 
 
@@ -170,7 +170,7 @@ public class Planter extends Product{
 
 	@Override
 	public String toString() {
-		return "Planter [commonName=" + getCommonName()+", planterheight=" + planterheight + ", planterCapacity=" + planterCapacity + ", drinageHoles="
+		return "Planter [planterheight=" + planterheight + ", planterCapacity=" + planterCapacity + ", drinageHoles="
 				+ drinageHoles + ", planterColor=" + planterColor + ", planterShape=" + planterShape + ", planterStock="
 				+ planterStock + "]";
 	}

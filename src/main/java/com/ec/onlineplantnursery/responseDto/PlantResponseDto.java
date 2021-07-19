@@ -13,7 +13,7 @@ public class PlantResponseDto {
 	private String typeOfPlant;
 	private String plantDescription;
 	private Integer plantStock;
-	private double plantCost;
+	private double cost;
 
 	
 
@@ -105,12 +105,14 @@ public class PlantResponseDto {
 		this.plantStock = plantStock;
 	}
 
-	public double getPlantCost() {
-		return plantCost;
+	
+
+	public double getCost() {
+		return cost;
 	}
 
-	public void setPlantCost(double plantCost) {
-		this.plantCost = plantCost;
+	public void setCost(double cost) {
+		this.cost = cost;
 	}
 
 	@Override
@@ -119,7 +121,7 @@ public class PlantResponseDto {
 				+ ", commonName=" + commonName + ", bloomTime=" + bloomTime + ", medicinalOrCulinaryUse="
 				+ medicinalOrCulinaryUse + ", difficultyLevel=" + difficultyLevel + ", temparature=" + temparature
 				+ ", typeOfPlant=" + typeOfPlant + ", plantDescription=" + plantDescription + ", plantStock="
-				+ plantStock + ", plantCost=" + plantCost + "]";
+				+ plantStock + ", cost=" + cost + "]";
 	}
 	
 	
